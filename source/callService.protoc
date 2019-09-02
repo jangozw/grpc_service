@@ -1,0 +1,18 @@
+syntax = "proto3";
+package grpc_source;
+
+message Request {
+    string ServiceName = 1;
+    string MethodName = 2;
+    string Params = 3;
+}
+message Response {
+    int32 Code = 1;
+    bool Success = 2;
+    string Msg = 3;
+    string Data = 4;
+}
+
+service CallServiceMethod {
+    rpc Invoke (Request) returns (Response) {}
+}
